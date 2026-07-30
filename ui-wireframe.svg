@@ -1,0 +1,111 @@
+<svg viewBox="0 0 900 1120" xmlns="http://www.w3.org/2000/svg" font-family="'Hiragino Sans', 'Noto Sans JP', monospace">
+  <rect x="0" y="0" width="900" height="1120" fill="#F5F6FA"/>
+
+  <text x="24" y="40" font-size="16" font-weight="bold" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">PixelForge CLI 実行イメージ</text>
+  <text x="24" y="62" font-size="10" fill="#6B7280" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">GUIを持たないCLIツールのため、ターミナルでの実行例とフィルタ適用前後のイメージを示す</text>
+
+  <!-- ===== ① ターミナル実行例 ===== -->
+  <rect x="24" y="84" width="852" height="330" rx="8" fill="#1E1E28"/>
+  <circle cx="46" cy="104" r="6" fill="#FF5F56"/>
+  <circle cx="66" cy="104" r="6" fill="#FFBD2E"/>
+  <circle cx="86" cy="104" r="6" fill="#27C93F"/>
+  <text x="450" y="108" font-size="10" fill="#9CA3AF" text-anchor="middle" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">ターミナル</text>
+
+  <text x="46" y="140" font-size="11" fill="#8EE4AF">$ make</text>
+  <text x="46" y="158" font-size="10" fill="#9CA3AF">gcc -std=c11 -Wall -Wextra -O2 -Iinclude -o pixelforge src/*.c -lm</text>
+
+  <text x="46" y="188" font-size="11" fill="#8EE4AF">$ ./pixelforge photo.bmp edge.bmp --filter edge</text>
+  <text x="46" y="206" font-size="10" fill="#E5E7EB">読み込み: photo.bmp (640x480)</text>
+  <text x="46" y="222" font-size="10" fill="#E5E7EB">フィルタ適用: edge (Sobel)</text>
+  <text x="46" y="238" font-size="10" fill="#E5E7EB">書き込み完了: edge.bmp</text>
+
+  <text x="46" y="268" font-size="11" fill="#8EE4AF">$ ./pixelforge photo.bmp bright.bmp --filter brightness --amount -30</text>
+  <text x="46" y="286" font-size="10" fill="#E5E7EB">読み込み: photo.bmp (640x480)</text>
+  <text x="46" y="302" font-size="10" fill="#E5E7EB">フィルタ適用: brightness (amount=-30)</text>
+  <text x="46" y="318" font-size="10" fill="#E5E7EB">書き込み完了: bright.bmp</text>
+
+  <text x="46" y="348" font-size="11" fill="#8EE4AF">$ ./pixelforge photo.bmp x.bmp --filter brightness</text>
+  <text x="46" y="366" font-size="10" fill="#FCA5A5">エラー: brightnessフィルタには --amount が必須です。</text>
+
+  <text x="46" y="396" font-size="11" fill="#8EE4AF">$ make test</text>
+  <text x="46" y="404" font-size="10" fill="#9CA3AF">... 23 assertions checked, 0 failed. RESULT: OK</text>
+
+  <!-- ===== ② フィルタ適用前後のイメージ ===== -->
+  <text x="24" y="452" font-size="14" font-weight="bold" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">フィルタ適用前後のイメージ</text>
+
+  <!-- 元画像 -->
+  <text x="24" y="480" font-size="10" fill="#6B7280" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">入力: photo.bmp</text>
+  <rect x="24" y="488" width="140" height="100" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="24" y="488" width="70" height="100" fill="#3B4A6B"/>
+  <rect x="94" y="488" width="70" height="100" fill="#E8B84B"/>
+  <circle cx="94" cy="538" r="24" fill="#F5F5F5" stroke="#9CA3AF"/>
+
+  <!-- grayscale -->
+  <text x="204" y="480" font-size="10" fill="#6B7280" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">--filter grayscale</text>
+  <rect x="204" y="488" width="140" height="100" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="204" y="488" width="70" height="100" fill="#5A5A5A"/>
+  <rect x="274" y="488" width="70" height="100" fill="#B8B8B8"/>
+  <circle cx="274" cy="538" r="24" fill="#EDEDED" stroke="#9CA3AF"/>
+
+  <!-- invert -->
+  <text x="384" y="480" font-size="10" fill="#6B7280" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">--filter invert</text>
+  <rect x="384" y="488" width="140" height="100" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <rect x="384" y="488" width="70" height="100" fill="#C4B594"/>
+  <rect x="454" y="488" width="70" height="100" fill="#1747B4"/>
+  <circle cx="454" cy="538" r="24" fill="#0A0A0A" stroke="#9CA3AF"/>
+
+  <!-- blur -->
+  <text x="564" y="480" font-size="10" fill="#6B7280" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">--filter blur --radius 3</text>
+  <rect x="564" y="488" width="140" height="100" fill="#FFFFFF" stroke="#D1D5DB"/>
+  <defs>
+    <linearGradient id="blurGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3B4A6B"/>
+      <stop offset="45%" stop-color="#3B4A6B"/>
+      <stop offset="55%" stop-color="#E8B84B"/>
+      <stop offset="100%" stop-color="#E8B84B"/>
+    </linearGradient>
+  </defs>
+  <rect x="564" y="488" width="140" height="100" fill="url(#blurGrad)" opacity="0.85"/>
+  <circle cx="634" cy="538" r="24" fill="#F0DFC4" stroke="#D1D5DB" opacity="0.7"/>
+
+  <!-- edge -->
+  <text x="744" y="480" font-size="10" fill="#6B7280" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">--filter edge</text>
+  <rect x="744" y="488" width="140" height="100" fill="#000000" stroke="#D1D5DB"/>
+  <line x1="814" y1="488" x2="814" y2="588" stroke="#FFFFFF" stroke-width="3"/>
+  <circle cx="814" cy="538" r="24" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+
+  <!-- ===== ③ オプション一覧 ===== -->
+  <text x="24" y="632" font-size="14" font-weight="bold" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">コマンドラインオプション</text>
+  <rect x="24" y="644" width="852" height="200" rx="6" fill="#FFFFFF" stroke="#E5E7EB"/>
+  <rect x="24" y="644" width="852" height="26" fill="#F1F3F5"/>
+  <text x="40" y="662" font-size="9" fill="#5B5F6B" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">オプション</text>
+  <text x="240" y="662" font-size="9" fill="#5B5F6B" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">必須</text>
+  <text x="320" y="662" font-size="9" fill="#5B5F6B" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">説明</text>
+
+  <text x="40" y="692" font-size="9" fill="#374151">--filter grayscale</text>
+  <text x="245" y="692" font-size="9" fill="#374151">-</text>
+  <text x="320" y="692" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">グレースケール変換</text>
+
+  <text x="40" y="720" font-size="9" fill="#374151">--filter invert</text>
+  <text x="245" y="720" font-size="9" fill="#374151">-</text>
+  <text x="320" y="720" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">色反転</text>
+
+  <text x="40" y="748" font-size="9" fill="#374151">--filter brightness --amount N</text>
+  <text x="245" y="748" font-size="9" fill="#DC2626" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">amount必須</text>
+  <text x="320" y="748" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">明るさ調整（Nは負の値も可）</text>
+
+  <text x="40" y="776" font-size="9" fill="#374151">--filter blur --radius N</text>
+  <text x="245" y="776" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">radius省略時は1</text>
+  <text x="320" y="776" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">ボックスブラー</text>
+
+  <text x="40" y="804" font-size="9" fill="#374151">--filter edge</text>
+  <text x="245" y="804" font-size="9" fill="#374151">-</text>
+  <text x="320" y="804" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">Sobelオペレータによるエッジ検出</text>
+
+  <text x="40" y="832" font-size="9" fill="#374151">-h / --help</text>
+  <text x="245" y="832" font-size="9" fill="#374151">-</text>
+  <text x="320" y="832" font-size="9" fill="#374151" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">使い方（Usage）を表示</text>
+
+  <text x="24" y="880" font-size="9" fill="#9CA3AF" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">※ 対応形式は24bit非圧縮BMP（BI_RGB）のみ。PNG/JPEGは事前にBMPへ変換してください。</text>
+  <text x="24" y="900" font-size="9" fill="#9CA3AF" font-family="'Hiragino Sans', 'Noto Sans JP', sans-serif">※ `make test` で23件のアサーションを含む自前テストハーネスが実行されます。</text>
+</svg>

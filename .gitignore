@@ -1,0 +1,10 @@
+pixelforge
+pixelforge_tests
+pixelforge.exe
+pixelforge_tests.exe
+*.o
+*.obj
+pf_test_roundtrip_tmp.bmp
+.vscode/
+.idea/
+.DS_Store
