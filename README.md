@@ -1,5 +1,7 @@
 # PixelForge（ピクセルフォージ）
 
+![CI](https://github.com/saki-nya1539/pixelforge/actions/workflows/ci.yml/badge.svg)
+
 BMP画像にグレースケール・反転・明るさ調整・ぼかし・エッジ検出を適用できる、依存ライブラリゼロのC言語製CLIツール
 
 ## 目次
@@ -63,6 +65,7 @@ GUIを持たないCLIツールのため、上図はターミナルでの実行�
 | ビルドツール | Make | 追加のビルドシステム導入なしに、`make` / `make test` だけでビルド・テストが完結する |
 | テスト | 自前の最小テストハーネス（`tests/test_harness.h`） | CUnit等の外部フレームワークをインストールせずに、`assert`ベースのテストをどの環境でも実行できるようにするため |
 | 数学関数 | `math.h`（`sqrt`） | Sobelエッジ検出の勾配の大きさの計算に使用（リンク時に`-lm`が必要） |
+| CI/CD | GitHub Actions | pushのたびに`make`と`make test`を自動実行し、ビルドとテストが通ることを継続的に検証 |
 
 ## システム構成図
 
